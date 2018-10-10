@@ -31,6 +31,24 @@ $pkg_include_dirs=@(
   "Windows Kits\NETFXSDK\4.6\Include\um"
 )
 
+function Invoke-SetupEnvironment {
+  Push-RuntimeEnv "VCTargetsPath" "$pkg_prefix\Program Files\MSBuild\Microsoft.Cpp\v4.0\v140"
+  Push-RuntimeEnv "VcInstallDir" "$pkg_prefix\Program Files\Microsoft Visual Studio 14.0\VC"
+  Push-RuntimeEnv "WindowsSdkDir_81" "$pkg_prefix\Windows Kits\8.1"
+
+  Push-RuntimeEnv "CLTrackerSdkPath" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64"
+  Push-RuntimeEnv "CLTrackerFrameworkPath" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64"
+  Push-RuntimeEnv "LinkTrackerSdkPath" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64"
+  Push-RuntimeEnv "LinkTrackerFrameworkPath" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64"
+  Push-RuntimeEnv "LibTrackerSdkPath" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64"
+  Push-RuntimeEnv "LibTrackerFrameworkPath" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64"
+  Push-RuntimeEnv "RCTrackerSdkPath" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64"
+  Push-RuntimeEnv "RCTrackerFrameworkPath" "$pkg_prefix\Program Files\MSBuild\14.0\bin\amd64"
+
+  Push-RuntimeEnv "DisableRegistryUse" "true"
+  Push-RuntimeEnv "UseEnv" "true"
+}
+
 function Invoke-Unpack {
   Start-Process "$HAB_CACHE_SRC_PATH/$pkg_filename" -Wait -ArgumentList "/passive /layout $HAB_CACHE_SRC_PATH/$pkg_dirname"
   Push-Location "$HAB_CACHE_SRC_PATH/$pkg_dirname"
