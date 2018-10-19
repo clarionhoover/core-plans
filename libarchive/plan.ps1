@@ -8,9 +8,10 @@ $pkg_source="http://www.libarchive.org/downloads/${pkg_name}-${pkg_version}.zip"
 $pkg_shasum="94e5fe36ea658b2ac91e036b178930735c537f14dcb54434a05530d2a14435ee"
 $pkg_deps=@(
     "core/openssl",
-    "core/bzip2"
+    "core/bzip2",
+    "core/zlib"
 )
-$pkg_build_deps=@("core/visual-cpp-build-tools-2015", "core/cmake", "core/zlib")
+$pkg_build_deps=@("core/visual-cpp-build-tools-2015", "core/cmake")
 $pkg_lib_dirs=@("lib")
 
 function Invoke-Build {
