@@ -1,8 +1,7 @@
 $pkg_name="perl"
 $pkg_origin="core"
 $pkg_version="5.26.1"
-$pkg_description="Safe, concurrent, practical language"
-$pkg_upstream_url="https://www.rust-lang.org/"
+$pkg_description="Perl 5 is a highly capable, feature-rich programming language with over 29 years of development."
 $pkg_upstream_url="http://www.perl.org/"
 $pkg_license=@("gpl", "perlartistic")
 $pkg_source="https://github.com/Perl/perl5/archive/v$pkg_version.zip"
