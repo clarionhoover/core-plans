@@ -8,6 +8,7 @@ $pkg_license=("zlib")
 $pkg_source="http://zlib.net/$pkg_file_name.zip"
 $pkg_shasum="d7510a8ee1918b7d0cad197a089c0a2cd4d6df05fee22389f67f115e738b178d"
 $pkg_build_deps=@("core/visual-cpp-build-tools-2015")
+$pkg_bin_dirs=@("bin")
 $pkg_lib_dirs=@("lib")
 $pkg_include_dirs=@("include")
 
@@ -17,7 +18,7 @@ function Invoke-Build {
 }
 
 function Invoke-Install {
-    Copy-Item "$HAB_CACHE_SRC_PATH\$pkg_name-$pkg_version\$pkg_name-$pkg_version\contrib\vstudio\vc14\x64\ZlibDllRelease\zlibwapi.dll" "$pkg_prefix\lib\" -Force
+    Copy-Item "$HAB_CACHE_SRC_PATH\$pkg_name-$pkg_version\$pkg_name-$pkg_version\contrib\vstudio\vc14\x64\ZlibDllRelease\zlibwapi.dll" "$pkg_prefix\bin\" -Force
     Copy-Item "$HAB_CACHE_SRC_PATH\$pkg_name-$pkg_version\$pkg_name-$pkg_version\contrib\vstudio\vc14\x64\ZlibDllRelease\zlibwapi.lib" "$pkg_prefix\lib\" -Force
     Copy-Item "$HAB_CACHE_SRC_PATH\$pkg_name-$pkg_version\$pkg_name-$pkg_version\zlib.h" "$pkg_prefix\include\" -Force
     Copy-Item "$HAB_CACHE_SRC_PATH\$pkg_name-$pkg_version\$pkg_name-$pkg_version\zconf.h" "$pkg_prefix\include\" -Force

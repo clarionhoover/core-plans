@@ -12,11 +12,11 @@ $pkg_deps=@(
     "core/zlib"
 )
 $pkg_build_deps=@("core/visual-cpp-build-tools-2015", "core/cmake")
+$pkg_bin_dirs=@("bin")
 $pkg_lib_dirs=@("lib")
 
 function Invoke-Build {
     cd "$pkg_name-$pkg_version"
-
     $bzip_lib = "$(Get-HabPackagePath bzip2)\lib\libbz2.lib"
     $bzip_includedir = "$(Get-HabPackagePath bzip2)\include"
     $zlib_libdir = "$(Get-HabPackagePath zlib)\lib\zlibwapi.lib"
@@ -27,5 +27,6 @@ function Invoke-Build {
 }
 
 function Invoke-Install {
+    Copy-Item "$HAB_CACHE_SRC_PATH\$pkg_name-$pkg_version\$pkg_name-$pkg_version\bin\Release\*.dll" "$pkg_prefix\bin\" -Force
     Copy-Item "$HAB_CACHE_SRC_PATH\$pkg_name-$pkg_version\$pkg_name-$pkg_version\$pkg_name\Release\*.lib" "$pkg_prefix\lib\" -Force
 }
