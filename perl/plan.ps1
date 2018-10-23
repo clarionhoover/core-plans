@@ -15,6 +15,12 @@ function Invoke-Build {
     $Env:INST_TOP="$pkg_prefix"
     cd perl5-$pkg_version\win32
     dmake
+}
+
+function Invoke-Install {
+    $Env:CCTYPE="MSVC140"
+    $Env:INST_TOP="$pkg_prefix"
+    cd perl5-$pkg_version\win32
     dmake install
 }
 

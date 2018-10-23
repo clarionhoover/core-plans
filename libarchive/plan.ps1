@@ -17,6 +17,7 @@ $pkg_lib_dirs=@("lib")
 
 function Invoke-Build {
     cd "$pkg_name-$pkg_version"
+
     $bzip_lib = "$(Get-HabPackagePath bzip2)\lib\libbz2.lib"
     $bzip_includedir = "$(Get-HabPackagePath bzip2)\include"
     $zlib_libdir = "$(Get-HabPackagePath zlib)\lib\zlibwapi.lib"
